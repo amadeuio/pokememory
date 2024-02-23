@@ -2,7 +2,7 @@
 ![language](https://img.shields.io/badge/Language-TypeScript-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
-# Memory Game 📃
+# Memory Game 🃏
 
 Memory game web app. Under development.
 
