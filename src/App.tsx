@@ -1,5 +1,15 @@
+import styled from "styled-components";
+
+const Title = styled.h1`
+  color: blue;
+`;
+
 function App() {
-  return <p>Memory</p>;
+  return (
+    <>
+      <Title>Memory Game</Title>
+    </>
+  );
 }
 
 export default App;
