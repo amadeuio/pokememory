@@ -8,11 +8,7 @@ import { Pokemon } from "./initialData";
 
 import shuffleArray from "./utils/shuffleArray";
 
-const FlexCenteredDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+import { FlexCenteredDiv } from "./components/GlobalStyles";
 
 const AppContainer = styled(FlexCenteredDiv)`
   flex-direction: column;
@@ -101,7 +97,6 @@ const App = () => {
         hasWon: allTouched ? true : prevGame.hasWon,
       }));
     } else {
-      // Touched twice
       setGame((prevGame) => ({
         ...prevGame,
         pokeList: updatedPokeList,

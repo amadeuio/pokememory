@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Pokemon } from "../initialData";
+import { FlexCenteredDiv } from "./GlobalStyles";
 
 interface PokeComponentProps {
   pokemon: Pokemon;
@@ -14,8 +15,8 @@ interface PokeContainerProps {
   $hasEnded: boolean;
 }
 
-const PokeContainer = styled.div<PokeContainerProps>`
-  border: 4px solid
+const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
+  border: 2px solid
     ${(props) => {
       if (props.$hasEnded) {
         if (props.$isTouchedTwice) {
@@ -28,6 +29,8 @@ const PokeContainer = styled.div<PokeContainerProps>`
       }
     }};
   border-radius: 5px;
+  height: 120px;
+  aspect-ratio: 1/1;
 `;
 
 const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasEnded, onClick }) => {
