@@ -149,7 +149,7 @@ const App = () => {
             <PokeComponent
               key={pokemon.id}
               pokemon={pokemon}
-              hasLost={game.hasLost}
+              hasEnded={game.hasLost || game.hasWon}
               onClick={() => {
                 if (!(game.hasLost || game.hasWon)) {
                   touchPokemon(pokemon);

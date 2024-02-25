@@ -4,19 +4,24 @@ import { Pokemon } from "../initialData";
 
 interface PokeComponentProps {
   pokemon: Pokemon;
-  hasLost: boolean;
+  hasEnded: boolean;
   onClick: () => void;
 }
 
 interface PokeContainerProps {
   $isTouched: boolean;
-  $hasLost: boolean;
+  $isTouchedTwice: boolean;
+  $hasEnded: boolean;
 }
 
 const PokeContainer = styled.div<PokeContainerProps>`
   border: 4px solid
     ${(props) => {
-      if (props.$hasLost) {
+      if (props.$hasEnded) {
+        if (props.$isTouchedTwice) {
+          return "red";
+        }
+
         if (props.$isTouched) {
           return "green";
         }
@@ -25,14 +30,14 @@ const PokeContainer = styled.div<PokeContainerProps>`
   border-radius: 5px;
 `;
 
-const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasLost, onClick }) => {
+const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasEnded, onClick }) => {
   const [pokemonData, setPokemonData] = useState(null);
 
   useEffect(() => {
-    console.log("Has lost:", hasLost);
-  }, [hasLost]);
+    console.log("Has ended:", hasEnded);
+  }, [hasEnded]);
 
-  const { name, isTouched } = pokemon;
+  const { name, isTouched, isTouchedTwice } = pokemon;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,7 +54,11 @@ const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasLost, onClick
   }, [name]);
 
   return (
-    <PokeContainer $isTouched={isTouched} $hasLost={hasLost} onClick={onClick}>
+    <PokeContainer
+      $isTouched={isTouched}
+      $isTouchedTwice={isTouchedTwice}
+      $hasEnded={hasEnded}
+      onClick={onClick}>
       {pokemonData ? (
         <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
       ) : (
