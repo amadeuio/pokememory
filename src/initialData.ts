@@ -7,11 +7,13 @@ export class Pokemon {
   id: UUID;
   name: string;
   isTouched: boolean;
+  isTouchedTwice: boolean;
 
   constructor(name: string) {
     this.id = uuidv4();
     this.name = name;
     this.isTouched = false;
+    this.isTouchedTwice = false;
   }
 }
 

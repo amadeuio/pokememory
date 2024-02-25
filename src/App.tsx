@@ -71,7 +71,7 @@ const App = () => {
   const [game, setGame] = useState(initialGame);
 
   useEffect(() => {
-    console.log("Game state changed:", game.hasLost);
+    console.log("Game state changed:", game);
   }, [game]);
 
   const touchPokemon = (pokemon: Pokemon) => {
@@ -79,6 +79,9 @@ const App = () => {
 
     const updatedPokeList = shuffledList.map((p) => {
       if (p.id === pokemon.id) {
+        if (p.isTouched) {
+          return { ...p, isTouchedTwice: true };
+        }
         return { ...p, isTouched: true };
       }
       return p;
@@ -98,12 +101,11 @@ const App = () => {
         hasWon: allTouched ? true : prevGame.hasWon,
       }));
     } else {
+      // Touched twice
       setGame((prevGame) => ({
         ...prevGame,
-        score: 0,
+        pokeList: updatedPokeList,
         hasLost: true,
-        bestScore: prevGame.bestScore,
-        pokeList: shuffleArray(initialGame.pokeList),
       }));
     }
   };
@@ -113,7 +115,10 @@ const App = () => {
   };
 
   const resetGame = () => {
-    setGame(initialGame);
+    setGame((prevGame) => ({
+      ...initialGame,
+      bestScore: prevGame.bestScore,
+    }));
   };
 
   return (
@@ -127,7 +132,11 @@ const App = () => {
       </Navbar>
 
       <EndMessage>
-        {game.hasLost && <MessageText>You clicked Dragonite twice!</MessageText>}
+        {game.hasLost && (
+          <MessageText>
+            You clicked {game.pokeList.find((pokemon) => pokemon.isTouchedTwice)?.name || ""} twice!
+          </MessageText>
+        )}
         {game.hasWon && <MessageText>You clicked all Pokemon exactly once, you win!</MessageText>}
         {(game.hasLost || game.hasWon) && (
           <RestartButton onClick={handleRestart}>Restart</RestartButton>
