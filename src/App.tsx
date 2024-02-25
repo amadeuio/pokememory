@@ -113,11 +113,7 @@ const App = () => {
   };
 
   const resetGame = () => {
-    setGame((prevState) => ({
-      ...prevState,
-      hasLost: false,
-      hasWon: false,
-    }));
+    setGame(initialGame);
   };
 
   return (
