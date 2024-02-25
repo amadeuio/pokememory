@@ -72,14 +72,14 @@ const App = () => {
 
   const touchPokemon = (pokemon: Pokemon) => {
     if (!pokemon.isTouched) {
-      const updatedPokeList = shuffleArray(
-        game.pokeList.map((p) => {
-          if (p.id === pokemon.id) {
-            return { ...p, isTouched: true };
-          }
-          return p;
-        })
-      );
+      const updatedPokeList = game.pokeList.map((p) => {
+        if (p.id === pokemon.id) {
+          return { ...p, isTouched: true };
+        }
+        return p;
+      });
+
+      const updatedShuffledPokeList = shuffleArray(updatedPokeList);
 
       const newScore = game.score + 1;
       const newBestScore = Math.max(game.bestScore, newScore);
@@ -89,7 +89,7 @@ const App = () => {
         ...prevGame,
         score: newScore,
         bestScore: newBestScore,
-        pokeList: updatedPokeList,
+        pokeList: updatedShuffledPokeList,
         hasWon: allTouched ? true : prevGame.hasWon,
       }));
     }
