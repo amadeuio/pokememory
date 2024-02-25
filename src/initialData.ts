@@ -41,7 +41,7 @@ const pokemonNames: string[] = [
 const initialPokeList: Pokemon[] = pokemonNames.map((name) => new Pokemon(name));
 
 export const initialGame: Game = {
-  pokeList: shuffleArray(initialPokeList),
+  pokeList: shuffleArray(initialPokeList), // Array of pokemon objects
   score: 0,
   bestScore: 0,
   hasLost: false,

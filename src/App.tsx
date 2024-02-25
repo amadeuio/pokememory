@@ -8,25 +8,29 @@ import { Pokemon } from "./initialData";
 
 import shuffleArray from "./utils/shuffleArray";
 
-const FlexDiv = styled.div`
+const FlexCenteredDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const AppContainer = styled(FlexDiv)`
+const AppContainer = styled(FlexCenteredDiv)`
   flex-direction: column;
   height: 100vh;
   background-color: #1e631a;
 `;
 
-const Navbar = styled(FlexDiv)`
+const Navbar = styled(FlexCenteredDiv)`
   height: 15vh;
   width: 100vw;
 `;
 
-const Content = styled(FlexDiv)`
-  height: 85vh;
+const EndMessage = styled(FlexCenteredDiv)`
+  height: 5vh;
+`;
+
+const Content = styled(FlexCenteredDiv)`
+  height: 80vh;
 `;
 
 const Score = styled.div`
@@ -42,8 +46,18 @@ const ScoreItem = styled.span`
   }
 `;
 
+const MessageText = styled.span`
+  margin-right: 20px;
+`;
+
+const RestartButton = styled.button`
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
 const PokemonGrid = styled.div`
-  transform: translateY(-40px);
+  transform: translateY(-20px);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 50px;
@@ -94,6 +108,18 @@ const App = () => {
     }
   };
 
+  const handleRestart = () => {
+    resetGame();
+  };
+
+  const resetGame = () => {
+    setGame((prevState) => ({
+      ...prevState,
+      hasLost: false,
+      hasWon: false,
+    }));
+  };
+
   return (
     <AppContainer>
       <Navbar>
@@ -103,6 +129,15 @@ const App = () => {
           <ScoreItem>Best Score: {game.bestScore}</ScoreItem>
         </Score>
       </Navbar>
+
+      <EndMessage>
+        {game.hasLost && <MessageText>You clicked Dragonite twice!</MessageText>}
+        {game.hasWon && <MessageText>You clicked all Pokemon exactly once, you win!</MessageText>}
+        {(game.hasLost || game.hasWon) && (
+          <RestartButton onClick={handleRestart}>Restart</RestartButton>
+        )}
+      </EndMessage>
+
       <Content>
         <PokemonGrid>
           {game.pokeList.map((pokemon) => (
@@ -110,7 +145,11 @@ const App = () => {
               key={pokemon.id}
               pokemon={pokemon}
               hasLost={game.hasLost}
-              onClick={() => touchPokemon(pokemon)}
+              onClick={() => {
+                if (!(game.hasLost || game.hasWon)) {
+                  touchPokemon(pokemon);
+                }
+              }}
             />
           ))}
         </PokemonGrid>
