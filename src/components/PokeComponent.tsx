@@ -36,10 +36,6 @@ const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
 const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasEnded, onClick }) => {
   const [pokemonData, setPokemonData] = useState(null);
 
-  useEffect(() => {
-    console.log("Has ended:", hasEnded);
-  }, [hasEnded]);
-
   const { name, isTouched, isTouchedTwice } = pokemon;
 
   useEffect(() => {

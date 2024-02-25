@@ -71,22 +71,18 @@ const App = () => {
   }, [game]);
 
   const touchPokemon = (pokemon: Pokemon) => {
-    const shuffledList = shuffleArray(game.pokeList);
-
-    const updatedPokeList = shuffledList.map((p) => {
-      if (p.id === pokemon.id) {
-        if (p.isTouched) {
-          return { ...p, isTouchedTwice: true };
-        }
-        return { ...p, isTouched: true };
-      }
-      return p;
-    });
-
     if (!pokemon.isTouched) {
+      const updatedPokeList = shuffleArray(
+        game.pokeList.map((p) => {
+          if (p.id === pokemon.id) {
+            return { ...p, isTouched: true };
+          }
+          return p;
+        })
+      );
+
       const newScore = game.score + 1;
       const newBestScore = Math.max(game.bestScore, newScore);
-
       const allTouched = newScore === 12;
 
       setGame((prevGame) => ({
@@ -96,7 +92,16 @@ const App = () => {
         pokeList: updatedPokeList,
         hasWon: allTouched ? true : prevGame.hasWon,
       }));
-    } else {
+    }
+
+    if (pokemon.isTouched) {
+      const updatedPokeList = game.pokeList.map((p) => {
+        if (p.id === pokemon.id) {
+          return { ...p, isTouchedTwice: true };
+        }
+        return p;
+      });
+
       setGame((prevGame) => ({
         ...prevGame,
         pokeList: updatedPokeList,
