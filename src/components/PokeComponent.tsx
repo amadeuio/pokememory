@@ -25,7 +25,7 @@ interface PokemonData {
 
 const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
   height: 120px;
-  aspect-ratio: 1/1;
+  width: 120px;
   background-image: url(${grass});
   border: 2px solid ${color.border};
   border-radius: ${globalBorderRadius};

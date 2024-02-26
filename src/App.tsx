@@ -17,17 +17,25 @@ import {
 
 const AppContainer = styled(FlexCenteredDiv)`
   flex-direction: column;
-  height: 100vh;
-  background-color: ${color.background};
 `;
 
 const Navbar = styled(FlexCenteredDiv)`
-  height: 15vh;
-  width: 100vw;
+  @media (max-width: 840px) {
+    flex-direction: column;
+  }
 `;
 
 const Title = styled.div`
+  margin: 20px;
   font-size: 80px;
+
+  @media (max-width: 470px) {
+    font-size: 60px;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 50px;
+  }
 `;
 
 const Score = styled.div`
@@ -35,6 +43,14 @@ const Score = styled.div`
   right: 40px;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 840px) {
+    position: static;
+  }
+
+  @media (max-width: 470px) {
+    font-size: 18px;
+  }
 `;
 
 const ScoreItem = styled.span`
@@ -44,7 +60,11 @@ const ScoreItem = styled.span`
 `;
 
 const EndMessage = styled(FlexCenteredDiv)`
-  height: 5vh;
+  height: 45px;
+
+  @media (max-width: 470px) {
+    font-size: 18px;
+  }
 `;
 
 const MessageText = styled.span`
@@ -70,14 +90,29 @@ const RestartButton = styled.button`
 `;
 
 const Content = styled(FlexCenteredDiv)`
-  height: 80vh;
+  padding: 40px;
+
+  @media (max-width: 700px) {
+    padding-bottom: 100px;
+  }
 `;
 
 const PokemonGrid = styled.div`
-  transform: translateY(-20px);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  grid-gap: 40px;
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 536px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 390px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const App = () => {

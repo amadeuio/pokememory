@@ -28,6 +28,11 @@ export const GlobalStyles = createGlobalStyle`
     width: 100%;
   }
 
+  body {
+    background-color: ${color.background};
+
+  }
+
   @font-face {
     font-family: "Pixel Operator";
     src: url('font/8-bitArcadeIn.ttf');
