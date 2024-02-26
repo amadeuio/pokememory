@@ -49,7 +49,7 @@ Classic memory game with Pokemon.
 
 ## Data
 
-The app uses objects to keep track of the state of the game. You'll find them created in `/src/initialData.ts` It consists of two main objects:
+The app uses objects to keep track of the state of the game. You'll find them created in [`/src/initialData.ts`](/src/initialData.ts) It consists of two main objects:
 
 ### 1. `Pokemon` Object:
 
@@ -62,7 +62,7 @@ Represents each Pokemon you see on screen.
 - `isTouched`
 - `isTouchedTwice`
 
-There's no need to store a link or image in the object because the PokeComponent (`/src/components/PokeComponent.tsx`) automatically retreives the sprite form PokeAPI with the Pokemon name.
+There's no need to store a link or image in the object because the [PokeComponent](/src/components/PokeComponent.tsx) (`/src/components/PokeComponent.tsx`) automatically retreives the sprite form PokeAPI with the Pokemon name.
 
 ### 2. `Game` Object:
 
