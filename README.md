@@ -36,7 +36,7 @@ Classic memory game with Pokemon.
 
 - `/src`: Contains the source code
 
-  - `/src/components`: PokeComponent and global & reset styled components
+  - `/src/components`: React and global styled components
   - `/src/App.tsx`: Main component responsible for managing state and rendering components of the app
   - `/src/main.tsx`: Entry point for the React app
   - `/src/initialData.ts`: Creation and initialization of the game and pokemon data, with it's corresponding type definitions
@@ -49,7 +49,7 @@ Classic memory game with Pokemon.
 
 ## Data
 
-The app uses objects to keep track of the state of the game. You'll find them created in [`/src/initialData.ts`](/src/initialData.ts) It consists of two main objects:
+The app uses objects to keep track of the state of the game. You'll find them created in [`initialData.ts`](/src/initialData.ts). It consists of two main objects:
 
 ### 1. `Pokemon` Object:
 
