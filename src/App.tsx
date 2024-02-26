@@ -137,7 +137,7 @@ const App = () => {
   return (
     <AppContainer>
       <Navbar>
-        <Title>Pokememory</Title>
+        <Title>pokememory</Title>
         <Score>
           <ScoreItem>Score: {game.score}</ScoreItem>
           <ScoreItem>Best Score: {game.bestScore === 12 ? "Win" : game.bestScore}</ScoreItem>
