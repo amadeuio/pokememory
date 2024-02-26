@@ -34,7 +34,7 @@ Classic memory game with Pokemon.
 
 ## File Structure
 
-- `/src`: Contains the source cod
+- `/src`: Contains the source code
 
   - `/src/components`: PokeComponent and global & reset styled components
   - `/src/App.tsx`: Main component responsible for managing state and rendering components of the app
@@ -74,11 +74,11 @@ Represents the state of the game.
 - `hasLost`
 - `hasWon`
 
-The game object is the state variable which the react app is constantly updating and rendering to create the flow of the game.
+The game object is the state variable which the React app is constantly updating and rendering to create the flow of the game.
 
 The `pokeList` is created from an array of string names and a `Pokemon` class, since the UI renders the Pokemon sprites using PokeAPI (in `/src/components/PokeComponent.tsx`), the names in the array can be changed to any Pokemon, the app will immediately work just fine.
 
-In the initial game data, the `pokeList` is initializated with a getter method that calls a `shuffleArray` utility function. This ensures every time the initial data is called, the order of the pokemon is random. This is useful for the particular functionlity and use case of this app. For example, the reset button consist of just calling the initial data again.
+In the initial game data, the `pokeList` is initializated with a getter function that calls a `shuffleArray` utility function. This ensures every time the initial data is accessed, the order of the pokemon is random. This is useful for the particular functionlity and use case of this app. For example, the reset button just needs to access initial data again.
 
 ## Run Locally
 
