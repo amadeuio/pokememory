@@ -114,6 +114,9 @@ const PokemonGrid = styled.div`
   }
 `;
 
+const isMobile = window.innerWidth <= 768;
+const mobileDelay = isMobile ? 200 : 70; // Higher delay for mobile
+
 const App = () => {
   const [game, setGame] = useState(initialGame);
 
@@ -132,13 +135,16 @@ const App = () => {
       const newBestScore = Math.max(game.bestScore, newScore);
       const allTouched = newScore === 12;
 
-      setGame((prevGame) => ({
-        ...prevGame,
-        score: newScore,
-        bestScore: newBestScore,
-        pokeList: updatedShuffledPokeList,
-        hasWon: allTouched ? true : prevGame.hasWon,
-      }));
+      setTimeout(() => {
+        // Delay imroves UX
+        setGame((prevGame) => ({
+          ...prevGame,
+          score: newScore,
+          bestScore: newBestScore,
+          pokeList: updatedShuffledPokeList,
+          hasWon: allTouched ? true : prevGame.hasWon,
+        }));
+      }, mobileDelay);
     }
 
     if (pokemon.isTouched) {
