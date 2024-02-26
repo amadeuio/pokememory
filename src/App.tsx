@@ -46,10 +46,6 @@ const Score = styled.div`
   @media (max-width: 840px) {
     position: static;
   }
-
-  @media (max-width: 470px) {
-    font-size: 18px;
-  }
 `;
 
 const ScoreItem = styled.span`
@@ -61,13 +57,25 @@ const ScoreItem = styled.span`
 const EndMessage = styled(FlexCenteredDiv)`
   height: 45px;
 
-  @media (max-width: 470px) {
-    font-size: 18px;
+  @media (max-width: 840px) {
+    height: auto;
+    margin-top: 15px;
+  }
+
+  @media (max-width: 670px) {
+    flex-direction: column;
   }
 `;
 
 const MessageText = styled.span`
+  text-align: center;
   margin-right: 20px;
+
+  @media (max-width: 670px) {
+    padding: 0 20px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
 `;
 
 const RestartButton = styled.button`
