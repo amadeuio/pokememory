@@ -60,6 +60,7 @@ const EndMessage = styled(FlexCenteredDiv)`
   @media (max-width: 840px) {
     height: auto;
     margin-top: 15px;
+    margin-bottom: 5px;
   }
 
   @media (max-width: 670px) {
