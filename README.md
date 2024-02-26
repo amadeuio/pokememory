@@ -62,6 +62,8 @@ Represents each Pokemon you see on screen.
 - `isTouched`
 - `isTouchedTwice`
 
+There's no need to store a link or image in the object because the PokeComponent (`/src/components/PokeComponent.tsx`) automatically retreives the sprite form PokeAPI with the Pokemon name.
+
 ### 2. `Game` Object:
 
 Represents the state of the game.
@@ -76,9 +78,9 @@ Represents the state of the game.
 
 The game object is the state variable which the React app is constantly updating and rendering to create the flow of the game.
 
-The `pokeList` is created from an array of string names and a `Pokemon` class, since the UI renders the Pokemon sprites using PokeAPI (in `/src/components/PokeComponent.tsx`), the names in the array can be changed to any Pokemon, the app will immediately work just fine.
+The `pokeList` is created from an array of string names and a `Pokemon` class, since the UI renders the Pokemon sprites, the names in the array can be changed to any Pokemon, the app will immediately work just fine.
 
-In the initial game data, the `pokeList` is initializated with a getter function that calls a `shuffleArray` utility function. This ensures every time the initial data is accessed, the order of the pokemon is random. This is useful for the particular functionlity and use case of this app. For example, the reset button just needs to access initial data again.
+In the initial game data, the `pokeList` is initializated with a getter function that calls a `shuffleArray` utility function. This ensures every time the initial data is accessed, the order of the Pokemon is random. This is useful for the particular functionlity and use case of this app. For example, the reset button just needs to access initial data again for it's functionality.
 
 ## Run Locally
 
