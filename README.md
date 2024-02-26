@@ -12,7 +12,7 @@ Pokemon memory game web app. Under development.
   <img src="public/screenshots/screenshot.png" width="650px" alt="screenshot">
 </p>
 <h2 align="center">
-  <a href="https://amadeuio.github.io/pokememory">👉 Demo</a>
+  <a href="">👉 Demo</a>
 </h2>
 
 ## Features
