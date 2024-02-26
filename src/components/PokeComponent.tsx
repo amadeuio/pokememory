@@ -15,6 +15,13 @@ interface PokeContainerProps {
   $hasEnded: boolean;
 }
 
+interface PokemonData {
+  sprites: {
+    front_default: string;
+  };
+  name: string;
+}
+
 const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
   height: 120px;
   aspect-ratio: 1/1;
@@ -44,7 +51,7 @@ const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
 `;
 
 const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasEnded, onClick }) => {
-  const [pokemonData, setPokemonData] = useState(null);
+  const [pokemonData, setPokemonData] = useState<PokemonData | null>(null);
 
   const { name, isTouched, isTouchedTwice } = pokemon;
 
