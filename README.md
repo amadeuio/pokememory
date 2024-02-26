@@ -22,7 +22,7 @@ Classic memory game with Pokemon.
 - Uses [PokeAPI](https://pokeapi.co/) to render the Pokemon sprites
 - Simple and user friendly UI
 - Realtime score and best score count
-- Clicked Pokemon are revealed at the end of the game, with right / wrong feedback
+- Clicked Pokemon are revealed at the end of the game, with right (🔵 blue border) / wrong (🔴 red border) feedback
 - Responsive
 
 ## Tech Stack
@@ -80,7 +80,7 @@ The game object is the state variable which the React app is constantly updating
 
 The `pokeList` is created from an array of string names and a `Pokemon` class, since the UI uses PokeAPI to show the sprites based on name, the names in the array can be changed to any Pokemon, the app will immediately work just fine.
 
-In the initial game data, the `pokeList` is initializated with a getter function that calls a `shuffleArray` utility function. This ensures every time the initial data is accessed, the order of the Pokemon is random. This is useful for the particular functionlity of the app. For example, the reset button just needs to access initial data again for its correct functionality.
+In the initial game data, the `pokeList` is initializated with a getter function that calls a `shuffleArray` utility function. This ensures every time the initial data is accessed, the order of the Pokemon is random. This is useful for the particular functionlity and use case of the app. For example, the reset button just needs to access initial data again for its correct functionality.
 
 ## Run Locally
 
