@@ -115,7 +115,7 @@ const PokemonGrid = styled.div`
 `;
 
 const isMobile = window.innerWidth <= 768;
-const mobileDelay = isMobile ? 200 : 70; // Higher delay for mobile
+const mobileDelay = isMobile ? 200 : 0; // Add delay for mobile
 
 const App = () => {
   const [game, setGame] = useState(initialGame);
