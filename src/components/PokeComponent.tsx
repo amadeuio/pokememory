@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Pokemon } from "../initialData";
-import { FlexCenteredDiv } from "./GlobalStyles";
+import { FlexCenteredDiv, color, globalBorderRadius, globalShadow } from "./GlobalStyles";
 
 interface PokeComponentProps {
   pokemon: Pokemon;
@@ -16,21 +16,31 @@ interface PokeContainerProps {
 }
 
 const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
-  border: 2px solid
-    ${(props) => {
-      if (props.$hasEnded) {
-        if (props.$isTouchedTwice) {
-          return "red";
-        }
-
-        if (props.$isTouched) {
-          return "green";
-        }
-      }
-    }};
-  border-radius: 5px;
   height: 120px;
   aspect-ratio: 1/1;
+  background-image: url("grass.png");
+  border: 2px solid ${color.border};
+  border-radius: ${globalBorderRadius};
+  box-shadow: ${globalShadow};
+
+  border-color: ${(props) => {
+    if (props.$hasEnded) {
+      if (props.$isTouchedTwice) {
+        return color.wrongBorder;
+      }
+
+      if (props.$isTouched) {
+        return color.rightBorder;
+      }
+    }
+  }};
+
+  cursor: pointer;
+  transition: transform 0.15s;
+
+  &:hover {
+    transform: scale(1.14);
+  }
 `;
 
 const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasEnded, onClick }) => {
@@ -66,4 +76,5 @@ const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasEnded, onClic
     </PokeContainer>
   );
 };
+
 export default PokeComponent;

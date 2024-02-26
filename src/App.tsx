@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 import PokeComponent from "./components/PokeComponent";
@@ -8,12 +8,17 @@ import { Pokemon } from "./initialData";
 
 import shuffleArray from "./utils/shuffleArray";
 
-import { FlexCenteredDiv } from "./components/GlobalStyles";
+import {
+  FlexCenteredDiv,
+  color,
+  globalBorderRadius,
+  globalShadow,
+} from "./components/GlobalStyles";
 
 const AppContainer = styled(FlexCenteredDiv)`
   flex-direction: column;
   height: 100vh;
-  background-color: #1e631a;
+  background-color: ${color.background};
 `;
 
 const Navbar = styled(FlexCenteredDiv)`
@@ -21,12 +26,8 @@ const Navbar = styled(FlexCenteredDiv)`
   width: 100vw;
 `;
 
-const EndMessage = styled(FlexCenteredDiv)`
-  height: 5vh;
-`;
-
-const Content = styled(FlexCenteredDiv)`
-  height: 80vh;
+const Title = styled.div`
+  font-size: 80px;
 `;
 
 const Score = styled.div`
@@ -42,33 +43,45 @@ const ScoreItem = styled.span`
   }
 `;
 
+const EndMessage = styled(FlexCenteredDiv)`
+  height: 5vh;
+`;
+
 const MessageText = styled.span`
   margin-right: 20px;
 `;
 
 const RestartButton = styled.button`
+  padding: 7px 15px;
+  cursor: pointer;
+  color: ${color.text};
+  border: 2px solid ${color.border};
+  box-shadow: ${globalShadow};
+  border-radius: ${globalBorderRadius};
+  transition: transform 0.15s;
+
   &:hover {
-    background-color: #0056b3;
+    transform: scale(1.14);
   }
+
+  &:active {
+    border-color: ${color.text};
+  }
+`;
+
+const Content = styled(FlexCenteredDiv)`
+  height: 80vh;
 `;
 
 const PokemonGrid = styled.div`
   transform: translateY(-20px);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
-`;
-
-const Title = styled.div`
-  font-size: 36px;
+  gap: 40px;
 `;
 
 const App = () => {
   const [game, setGame] = useState(initialGame);
-
-  useEffect(() => {
-    console.log("Game state changed:", game);
-  }, [game]);
 
   const touchPokemon = (pokemon: Pokemon) => {
     if (!pokemon.isTouched) {
@@ -124,10 +137,10 @@ const App = () => {
   return (
     <AppContainer>
       <Navbar>
-        <Title>Pokemon Memory</Title>
+        <Title>Pokememory</Title>
         <Score>
           <ScoreItem>Score: {game.score}</ScoreItem>
-          <ScoreItem>Best Score: {game.bestScore}</ScoreItem>
+          <ScoreItem>Best Score: {game.bestScore === 12 ? "Win" : game.bestScore}</ScoreItem>
         </Score>
       </Navbar>
 
