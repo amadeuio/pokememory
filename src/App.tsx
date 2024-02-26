@@ -3,17 +3,16 @@ import styled from "styled-components";
 
 import PokeComponent from "./components/PokeComponent";
 
-import { initialGame } from "./initialData";
-import { Pokemon } from "./initialData";
-
-import shuffleArray from "./utils/shuffleArray";
-
 import {
   FlexCenteredDiv,
   color,
   globalBorderRadius,
   globalShadow,
 } from "./components/GlobalStyles";
+
+import { initialGame, Pokemon } from "./initialData";
+
+import shuffleArray from "./utils/shuffleArray";
 
 const AppContainer = styled(FlexCenteredDiv)`
   flex-direction: column;

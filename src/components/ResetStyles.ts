@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const ResetStyles = createGlobalStyle`
+export const ResetStyles = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -10,5 +10,3 @@ const ResetStyles = createGlobalStyle`
     vertical-align: baseline;
   }
 `;
-
-export default ResetStyles;

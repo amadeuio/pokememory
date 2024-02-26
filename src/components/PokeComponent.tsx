@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Pokemon } from "../initialData";
-import grass from "/images/grass.png";
+
 import { FlexCenteredDiv, color, globalBorderRadius, globalShadow } from "./GlobalStyles";
+
+import { Pokemon } from "../initialData";
+
+import grass from "/images/grass.png";
 
 interface PokeComponentProps {
   pokemon: Pokemon;
