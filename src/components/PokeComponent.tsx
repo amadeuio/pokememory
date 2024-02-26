@@ -40,6 +40,8 @@ const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
         return color.rightBorder;
       }
     }
+
+    return color.border;
   }};
 
   cursor: ${(props) => (props.$hasEnded ? "default" : "pointer")};
@@ -47,7 +49,7 @@ const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
 
   ${(props) =>
     !props.$hasEnded &&
-    ` // Conditionally apply hover effect
+    `
     &:hover {
       transform: scale(1.14);
     }
