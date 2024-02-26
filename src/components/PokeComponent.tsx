@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Pokemon } from "../initialData";
+import grass from "/images/grass.png";
 import { FlexCenteredDiv, color, globalBorderRadius, globalShadow } from "./GlobalStyles";
 
 interface PokeComponentProps {
@@ -25,7 +26,7 @@ interface PokemonData {
 const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
   height: 120px;
   aspect-ratio: 1/1;
-  background-image: url("grass.png");
+  background-image: url(${grass});
   border: 2px solid ${color.border};
   border-radius: ${globalBorderRadius};
   box-shadow: ${globalShadow};
