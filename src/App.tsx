@@ -115,7 +115,7 @@ const PokemonGrid = styled.div`
 `;
 
 const isMobile = window.innerWidth <= 768;
-const mobileDelay = isMobile ? 200 : 0; // Add delay for mobile
+const mobileDelay = isMobile ? 200 : 0; // Add delay for better UX in mobile
 
 const App = () => {
   const [game, setGame] = useState(initialGame);
@@ -136,7 +136,6 @@ const App = () => {
       const allTouched = newScore === 12;
 
       setTimeout(() => {
-        // Delay imroves UX
         setGame((prevGame) => ({
           ...prevGame,
           score: newScore,
