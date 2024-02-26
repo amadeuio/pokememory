@@ -25,6 +25,7 @@ export interface Game {
   hasWon: boolean;
 }
 
+// Can be modified with any pokemon name
 const pokemonNames: string[] = [
   "pikachu",
   "charmander",
