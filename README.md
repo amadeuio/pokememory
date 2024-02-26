@@ -62,7 +62,7 @@ Represents each Pokemon you see on screen.
 - `isTouched`
 - `isTouchedTwice`
 
-There's no need to store a link or image in the object because the [PokeComponent](/src/components/PokeComponent.tsx) (`/src/components/PokeComponent.tsx`) automatically retreives the sprite form PokeAPI with the Pokemon name.
+There's no need to store a link or image in the object because the PokeComponent ([`/src/components/PokeComponent.tsx`](/src/components/PokeComponent.tsx)) automatically retreives the sprite form PokeAPI with the Pokemon name.
 
 ### 2. `Game` Object:
 
