@@ -22,7 +22,7 @@ Classic memory game with Pokemon.
 - Uses [PokeAPI](https://pokeapi.co/) to render the Pokemon sprites
 - Simple and user friendly UI
 - Realtime score and best score count
-- Clicked Pokemon are revealed at the end of the game, with right / wrong feedback
+- Clicked Pokemon are revealed at the end of the game, with <font color="#0062ff">Right</font> / <font color="#c01111">Wrong</font> feedback
 - Responsive
 
 ## Tech Stack
