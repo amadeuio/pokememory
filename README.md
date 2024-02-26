@@ -22,7 +22,7 @@ Classic memory game with Pokemon.
 - Uses [PokeAPI](https://pokeapi.co/) to render the Pokemon sprites
 - Simple and user friendly UI
 - Realtime score and best score count
-- Clicked Pokemon are revealed at the end of the game, with <font color="#0062ff">Right</font> / <font color="#c01111">Wrong</font> feedback
+- Clicked Pokemon are revealed at the end of the game, with right / wrong feedback
 - Responsive
 
 ## Tech Stack
@@ -36,7 +36,7 @@ Classic memory game with Pokemon.
 
 - `/src`: Contains the source code
 
-  - `/src/components`: React and styled components
+  - `/src/components`: React and style components
   - `/src/App.tsx`: Main component responsible for managing state and rendering components of the app
   - `/src/main.tsx`: Entry point for the React app
   - `/src/initialData.ts`: Creation and initialization of the `Game` and `Pokemon` data, with corresponding type definitions
