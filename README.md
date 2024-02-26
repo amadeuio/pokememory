@@ -2,10 +2,9 @@
 ![language](https://img.shields.io/badge/Language-TypeScript-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
-# Memory Game 🃏
+# Pokememory 🃏
 
-
-Memory game web app. Under development.
+Pokemon memory game web app. Under development.
 
 ## Demo
 
@@ -13,7 +12,7 @@ Memory game web app. Under development.
   <img src="public/screenshots/screenshot.png" width="650px" alt="screenshot">
 </p>
 <h2 align="center">
-  <a href="https://amadeuio.github.io/memory-game">👉 Demo</a>
+  <a href="https://amadeuio.github.io/pokememory">👉 Demo</a>
 </h2>
 
 ## Features
