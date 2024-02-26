@@ -42,12 +42,16 @@ const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
     }
   }};
 
-  cursor: pointer;
+  cursor: ${(props) => (props.$hasEnded ? "default" : "pointer")};
   transition: transform 0.15s;
 
-  &:hover {
-    transform: scale(1.14);
-  }
+  ${(props) =>
+    !props.$hasEnded &&
+    ` // Conditionally apply hover effect
+    &:hover {
+      transform: scale(1.14);
+    }
+  `}
 `;
 
 const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasEnded, onClick }) => {
