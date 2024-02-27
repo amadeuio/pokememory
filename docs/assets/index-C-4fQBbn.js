@@ -93,6 +93,11 @@ Error generating stack: `+o.message+`
   `}
 `,Xm=({pokemon:e,hasEnded:t,onClick:n})=>{const[r,l]=Rt.useState(null),{name:o,isTouched:i,isTouchedTwice:u}=e;return Rt.useEffect(()=>{(async()=>{try{const m=await(await fetch(`https://pokeapi.co/api/v2/pokemon/${o}`)).json();l(m)}catch(a){console.error("Error fetching data:",a)}})()},[o]),X.jsx(Km,{$isTouched:i,$isTouchedTwice:u,$hasEnded:t,onClick:n,children:r?X.jsx("img",{src:r.sprites.front_default,alt:r.name}):X.jsx("p",{children:"Loading..."})})};let sl;const Zm=new Uint8Array(16);function Jm(){if(!sl&&(sl=typeof crypto<"u"&&crypto.getRandomValues&&crypto.getRandomValues.bind(crypto),!sl))throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");return sl(Zm)}const re=[];for(let e=0;e<256;++e)re.push((e+256).toString(16).slice(1));function qm(e,t=0){return re[e[t+0]]+re[e[t+1]]+re[e[t+2]]+re[e[t+3]]+"-"+re[e[t+4]]+re[e[t+5]]+"-"+re[e[t+6]]+re[e[t+7]]+"-"+re[e[t+8]]+re[e[t+9]]+"-"+re[e[t+10]]+re[e[t+11]]+re[e[t+12]]+re[e[t+13]]+re[e[t+14]]+re[e[t+15]]}const bm=typeof crypto<"u"&&crypto.randomUUID&&crypto.randomUUID.bind(crypto),_a={randomUUID:bm};function e0(e,t,n){if(_a.randomUUID&&!t&&!e)return _a.randomUUID();e=e||{};const r=e.random||(e.rng||Jm)();if(r[6]=r[6]&15|64,r[8]=r[8]&63|128,t){n=n||0;for(let l=0;l<16;++l)t[n+l]=r[l];return t}return qm(r)}function yd(e){const t=[...e];for(let n=t.length-1;n>0;n--){const r=Math.floor(Math.random()*(n+1));[t[n],t[r]]=[t[r],t[n]]}return t}class t0{constructor(t){Qn(this,"id");Qn(this,"name");Qn(this,"isTouched");Qn(this,"isTouchedTwice");this.id=e0(),this.name=t,this.isTouched=!1,this.isTouchedTwice=!1}}const n0=["pikachu","charmander","bulbasaur","squirtle","jigglypuff","snorlax","eevee","mewtwo","gyarados","magikarp","dragonite","mew"],r0=n0.map(e=>new t0(e)),Pa={get pokeList(){return yd(r0)},score:0,bestScore:0,hasLost:!1,hasWon:!1},l0=$e(Ur)`
   flex-direction: column;
+  height: 100%;
+
+  @media (max-width: 840px) {
+    height: auto;
+  }
 `,o0=$e(Ur)`
   @media (max-width: 840px) {
     flex-direction: column;
@@ -159,15 +164,22 @@ Error generating stack: `+o.message+`
     border-color: ${qe.text};
   }
 `,c0=$e(Ur)`
-  padding: 40px;
+  height: 100%;
 
   @media (max-width: 700px) {
     padding-bottom: 100px;
   }
 `,f0=$e.div`
+  margin: 40px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
+
+  transform: translateY(-40px);
+
+  @media (max-width: 840px) {
+    transform: translateY(0px);
+  }
 
   @media (max-width: 700px) {
     grid-template-columns: repeat(3, 1fr);
