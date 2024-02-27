@@ -19,7 +19,7 @@ interface PokeContainerProps {
   $hasEnded: boolean;
 }
 
-interface PokemonData {
+interface PokeApiData {
   sprites: {
     front_default: string;
   };
@@ -61,7 +61,7 @@ const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
 `;
 
 const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasEnded, onClick }) => {
-  const [pokemonData, setPokemonData] = useState<PokemonData | null>(null);
+  const [pokeApiData, setPokeApiData] = useState<PokeApiData | null>(null);
 
   const { name, isTouched, isTouchedTwice } = pokemon;
 
@@ -69,8 +69,8 @@ const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasEnded, onClic
     const fetchData = async () => {
       try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-        const pokemonData = await response.json();
-        setPokemonData(pokemonData);
+        const pokeApiData = await response.json();
+        setPokeApiData(pokeApiData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -85,8 +85,8 @@ const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasEnded, onClic
       $isTouchedTwice={isTouchedTwice}
       $hasEnded={hasEnded}
       onClick={onClick}>
-      {pokemonData ? (
-        <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
+      {pokeApiData ? (
+        <img src={pokeApiData.sprites.front_default} alt={pokeApiData.name} />
       ) : (
         <p>Loading...</p>
       )}
