@@ -16,6 +16,11 @@ import shuffleArray from "./utils/shuffleArray";
 
 const AppContainer = styled(FlexCenteredDiv)`
   flex-direction: column;
+  height: 100%;
+
+  @media (max-width: 840px) {
+    height: auto;
+  }
 `;
 
 const Navbar = styled(FlexCenteredDiv)`
@@ -98,7 +103,7 @@ const RestartButton = styled.button`
 `;
 
 const Content = styled(FlexCenteredDiv)`
-  padding: 40px;
+  height: 100%;
 
   @media (max-width: 700px) {
     padding-bottom: 100px;
@@ -106,9 +111,16 @@ const Content = styled(FlexCenteredDiv)`
 `;
 
 const PokemonGrid = styled.div`
+  margin: 40px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
+
+  transform: translateY(-40px);
+
+  @media (max-width: 840px) {
+    transform: translateY(0px);
+  }
 
   @media (max-width: 700px) {
     grid-template-columns: repeat(3, 1fr);
