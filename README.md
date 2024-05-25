@@ -3,7 +3,7 @@
 
 # Pokememory
 
-Memory game using Pokemon. The goal is to click every pokemon exactly once.
+Pokemon memory game with React. The goal is to click every Pokemon exactly once.
 
 ## Demo
 
@@ -42,6 +42,7 @@ Located in the root:
 
 - `docs`: Distribution files generated during the build, GitHub pages is reading the root of this directory
 - `public`: Images, font and app screenshots
+- `index.html`: Entry point for the app
 
 ## Data
 
