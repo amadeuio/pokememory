@@ -62,7 +62,6 @@ const PokeContainer = styled(FlexCenteredDiv)<PokeContainerProps>`
 
 const PokeComponent: React.FC<PokeComponentProps> = ({ pokemon, hasEnded, onClick }) => {
   const [pokeApiData, setPokeApiData] = useState<PokeApiData | null>(null);
-
   const { name, isTouched, isTouchedTwice } = pokemon;
 
   useEffect(() => {
